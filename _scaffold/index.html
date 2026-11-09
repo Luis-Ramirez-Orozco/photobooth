@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--SEO:HEAD-->
+<title>Your Photo Booth Co | Open-air, enclosed and 360 photo booth rentals for events in LA and surrounding counties</title>
+<meta name="description" content="Open-air, enclosed and 360 photo booth rentals for events in Los Angeles and surrounding counties.">
+<link rel="canonical" href="https://example.com/">
+<meta name="theme-color" content="#ff5a3c">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Your Photo Booth Co">
+<meta property="og:title" content="Your Photo Booth Co | Open-air, enclosed and 360 photo booth rentals for events in LA and surrounding counties">
+<meta property="og:description" content="Open-air, enclosed and 360 photo booth rentals for events in Los Angeles and surrounding counties.">
+<meta property="og:url" content="https://example.com/">
+<meta property="og:image" content="https://example.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your Photo Booth Co | Open-air, enclosed and 360 photo booth rentals for events in LA and surrounding counties">
+<meta name="twitter:description" content="Open-air, enclosed and 360 photo booth rentals for events in Los Angeles and surrounding counties.">
+<meta name="twitter:image" content="https://example.com/assets/og-image.jpg">
+
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@graph": [
+  { "@type": "LocalBusiness", "@id": "https://example.com/#business", "name": "Your Photo Booth Co", "url": "https://example.com/",
+    "description": "Open-air, enclosed and 360 photo booth rentals for weddings, birthdays, corporate events and every other kind of celebration. Serving Los Angeles and surrounding counties. Packages start at $399 for a 3-hour minimum, with additional hours at $60 per hour.", "image": "https://example.com/assets/og-image.jpg",
+    "telephone": "555-555-0123", "email": "hello@example.com",
+    "areaServed": "LA and surrounding counties",
+    "makesOffer": [ { "@type": "Offer", "name": "3-Hour Photo Booth Package", "price": "399", "priceCurrency": "USD" } ] },
+  { "@type": "WebSite", "@id": "https://example.com/#website", "url": "https://example.com/", "name": "Your Photo Booth Co" }
+,
+  {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What types of photo booths do you offer?", "acceptedAnswer": {"@type": "Answer", "text": "We offer open-air booths, enclosed booths and 360 booths. Open-air booths are great for big groups, enclosed booths give a private, classic booth feel, and 360 booths capture slow-motion video as guests stand on a platform while the camera circles around them."}}, {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "Packages start at $399 for a 3-hour minimum. Each additional hour is $60."}}, {"@type": "Question", "name": "Where do you travel?", "acceptedAnswer": {"@type": "Answer", "text": "We serve Los Angeles and the surrounding counties. Tell us your venue when you inquire and we will confirm availability."}}, {"@type": "Question", "name": "What kinds of events do you work?", "acceptedAnswer": {"@type": "Answer", "text": "All of them: weddings, birthdays, corporate events, graduations, holiday parties and more."}}, {"@type": "Question", "name": "How much space do you need?", "acceptedAnswer": {"@type": "Answer", "text": "Open-air and enclosed booths need about an 8 x 8 ft area, and a 360 booth needs about 12 x 12 ft. We also need one standard power outlet nearby."}}, {"@type": "Question", "name": "How early do you arrive and how long does setup take?", "acceptedAnswer": {"@type": "Answer", "text": "We arrive ahead of your start time to set up and test everything so guests can start right away. [CONFIRM: setup time and whether it counts against rental hours]"}}, {"@type": "Question", "name": "Is an attendant included?", "acceptedAnswer": {"@type": "Answer", "text": "[CONFIRM: attendant included with every booking?]"}}, {"@type": "Question", "name": "Do guests get prints or digital copies?", "acceptedAnswer": {"@type": "Answer", "text": "[CONFIRM: prints included, print size, and online gallery / instant sharing]"}}, {"@type": "Question", "name": "Do you provide props and backdrops?", "acceptedAnswer": {"@type": "Answer", "text": "[CONFIRM: props and backdrop options included]"}}, {"@type": "Question", "name": "Can the booth be used outdoors?", "acceptedAnswer": {"@type": "Answer", "text": "[CONFIRM: outdoor policy, shade/cover and weather requirements]"}}, {"@type": "Question", "name": "How do I book and what deposit is required?", "acceptedAnswer": {"@type": "Answer", "text": "Pick your date on the calendar and send an inquiry by email or text. [CONFIRM: deposit amount and cancellation policy]"}}]}
+] }
+</script>
+<!--/SEO:HEAD-->
+<style>.faq-link{pointer-events:auto;background:none;border:0;border-bottom:1.5px solid var(--accent,#ff5a3c);padding:4px 1px;margin-right:18px;font:inherit;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:inherit;cursor:pointer}</style>
+<link rel="stylesheet" href="assets/faq.css">
+<link rel="stylesheet" href="assets/calendar.css?v=1">
+
+<style>
+  :root {
+    --bg: #ebe9e5;
+    --fg: #17171a;
+    --muted: #77757a;
+    --accent: #ff5a3c;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; overflow: hidden; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    user-select: none; -webkit-user-select: none;
+  }
+
+  header {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 2000; pointer-events: none;
+    padding: 24px 32px; display: flex; justify-content: space-between; align-items: baseline;
+  }
+  header h1 { font-size: 13px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+  header span { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  /* The shelf: full-bleed so the cards run edge to edge */
+  .stage {
+    position: absolute; inset: 56px 0 0 0; perspective: 2400px; perspective-origin: 50% 50%;
+    overflow: hidden; cursor: grab; touch-action: pan-y;
+  }
+  .stage.dragging { cursor: grabbing; }
+
+  /* Each cover is a thin 3D slab: front, back, and two edges (thickness --t).
+     --eb / --ef are the edge background and text colors, set per site. */
+  .world { position: absolute; inset: 0; transform-style: preserve-3d; }
+  .cover {
+    position: absolute; left: 50%; top: 47%;
+    transform-style: preserve-3d; will-change: transform;
+  }
+  .cover .front, .cover .back, .cover .side { position: absolute; backface-visibility: hidden; }
+  .cover .front {
+    inset: 0; overflow: hidden; background: var(--eb); border-radius: var(--r);
+    transform: translateZ(calc(var(--t) / 2));
+  }
+  .cover .back { inset: 0; background: var(--eb); border-radius: var(--r); transform: rotateY(180deg) translateZ(calc(var(--t) / 2)); }
+  .cover .side {
+    top: var(--r); bottom: var(--r); width: calc(var(--t) + 1px);   /* +1px: overlap the faces so no hairline seam shows */ background: var(--eb); color: var(--ef);
+    backface-visibility: visible;
+    display: flex; align-items: center; justify-content: center;
+  }
+  /* Short strips that wrap each rounded corner, so the edge meets the cover all the way round */
+  .cover .corner { position: absolute; background: var(--eb); }
+  .cover .side.l { left: calc((var(--t) + 1px) / -2); transform: rotateY(-90deg); }
+  .cover .side.r { right: calc((var(--t) + 1px) / -2); transform: rotateY(90deg); }
+  /* Title on the edge, like a book spine */
+  .cover .side span {
+    writing-mode: vertical-rl; white-space: nowrap; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; font-size: calc(var(--t) * .58);
+  }
+  .cover .front .media { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; background: var(--eb); }
+  .cover .fallback {
+    position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center;
+    color: #fff; font-size: 28px; font-weight: 700; letter-spacing: -.02em;
+    background: linear-gradient(160deg, #2b2f4a, #6b3f5c);
+  }
+  /* Darkens cards the further they are from center */
+  .cover .shade { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; }
+
+  /* A recreated homepage is laid out 1280px wide (its height follows the card shape) and scaled to fit the card */
+  .page { position: absolute; top: 0; left: 0; width: 1280px; height: var(--ph, 1600px); transform-origin: 0 0; transform: scale(var(--s, .4)); pointer-events: none; overflow: hidden; }
+
+  /* ── Recreation: example ── (replace with your own; see references/example-recreations.js) */
+  .ex { background: #111; color: #fff; font-family: system-ui, sans-serif; display: grid; place-items: center; text-align: center; }
+  .ex h1 { font-size: 110px; margin: 0 0 20px; letter-spacing: -.03em; }
+  .ex p { font-size: 40px; margin: 0; opacity: .7; }
+
+  /* Floating info bar for the focused site */
+  .bar {
+    position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 2000;
+    display: flex; align-items: center; gap: 18px; padding: 10px 10px 10px 22px; max-width: calc(100vw - 32px);
+    background: rgba(255,255,255,.96);   /* solid: a live backdrop blur over moving 3D cards is costly and flickers */
+    border-radius: 999px; box-shadow: 0 6px 24px rgba(0,0,0,.12);
+    transition: opacity .2s;
+  }
+  .bar.swap { opacity: .3; }
+  .bar .meta { min-width: 0; }
+  .bar h2 { font-size: 15px; letter-spacing: -.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bar p { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 46ch; }
+  .bar a {
+    flex: none; padding: 10px 18px; border-radius: 999px; background: var(--accent); color: #fff;
+    text-decoration: none; font-weight: 600; font-size: 13px;
+  }
+  .bar a:hover { filter: brightness(1.08); }
+  .bar .consult {
+    flex: none; padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(0,0,0,.18); background: transparent;
+    color: var(--fg); font: inherit; font-weight: 600; font-size: 13px; cursor: pointer;
+  }
+  .bar .consult:hover { background: rgba(0,0,0,.06); }
+  .play-badge { display: none; }
+  @media (max-width: 700px), (orientation: landscape) and (max-height: 520px), (orientation: portrait) and (max-width: 1100px) {
+    .play-badge { display: flex; position: absolute; bottom: 12px; left: 12px; width: 44px; height: 44px; border-radius: 50%; align-items: center; justify-content: center; background: rgba(0,0,0,.38); box-shadow: 0 0 0 1px rgba(255,255,255,.55), 0 2px 8px rgba(0,0,0,.35); pointer-events: none; }
+    .play-badge svg { width: 20px; height: 20px; fill: #fff; margin-left: 2px; filter: drop-shadow(0 1px 2px rgba(0,0,0,.4)); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Selected Work</h1>
+  <button type="button" data-faq-open class="faq-link">FAQ</button><span id="counter"></span>
+</header>
+
+<main class="stage" id="stage" aria-label="Website carousel"></main>
+
+<section class="bar" id="bar" aria-live="polite"></section>
+
+<script src="assets/site-config.js"></script>
+<script src="assets/calendar.js?v=1"></script>
+<script src="assets/faq.js"></script>
+
+<script>
+/* ──────────────────────────────────────────────
+   EDIT THIS LIST — one entry per card.
+   Each card shows ONE kind of cover (first match wins):
+     cover : a key of RECREATIONS below — a live, scaled-down copy of a homepage
+     video : "assets/clip.mp4" — muted looping video; plays only while the card is near the center
+     image : "assets/photo.jpg" — a picture or screenshot
+     (none) — the title on a gradient
+   For video/image you can also set:
+     fit      : "cover" (fill the card, crop the edges; default) or "contain" (show everything, with bars)
+     position : where to anchor the crop, as CSS object-position (e.g. "top" for page screenshots)
+     poster   : (video only) an image to show until the video loads
+   edge / edgeText : the solid color of the card's edge and the title printed on it.
+   ────────────────────────────────────────────── */
+const SITES = [
+  { title: "Photo Project", url: "https://example.com", image: "assets/photo.jpg",      // a picture or screenshot (put the file in assets/)
+    edge: "#c9b79c", edgeText: "#1a1a1a", tags: "Photography", description: "A picture card." },
+  { title: "Video Project", url: "https://example.com", video: "assets/clip.mp4",       // muted looping video
+    edge: "#222222", edgeText: "#f5f5f5", tags: "Video", description: "A video card. Add poster: \"assets/poster.jpg\" if you like." },
+  { title: "Recreated Site", url: "https://example.com", cover: "example",              // live recreation, see RECREATIONS
+    edge: "#111111", edgeText: "#ffffff", tags: "Web", description: "A live copy of the homepage." },
+  { title: "Title Only", url: "https://example.com",                                    // no media: title on a gradient
+    edge: "#4a3f6b", edgeText: "#f5f5f5", tags: "Placeholder", description: "Shown until you add media." },
+];
+
+/* Tunables */
+/* Card size. Everything else (spacing, thickness, corner radius) scales with the card width. */
+const ASPECT = 0.8;        // card shape, width / height: 0.8 = 4:5 portrait, 1 = square, 9/16 = phone video, 16/9 = landscape video
+const CARD_HEIGHT = 0.78;  // card height as a fraction of the carousel area's height (bigger = larger cards)
+const CARD_MAX_WIDTH = 0.78; // card width is also capped at this fraction of the window width
+const PITCH = 0.17;        // distance between neighbouring cards, fraction of card width
+const ANGLE_NEAR = 90;     // cards at the center are edge-on...
+const ANGLE_FAR = 48;      // ...and ease toward this many degrees from edge-on out at the sides
+const CENTER_GAP = 0.14;   // clear space at the center of the row, fraction of card width
+
+/* Compact mode (phones, landscape phones, portrait tablets). Same shelf, three differences: the centered card faces you flat (0°),
+   cards are spaced a little wider so a strip of background shows between them, and opening is staged
+   more strictly with the opened card scaled up to fill the screen. Desktop values above are untouched. */
+const COMPACT_Q = '(max-width: 700px), (orientation: landscape) and (max-height: 520px), (orientation: portrait) and (max-width: 1100px)';   // phones, landscape phones and portrait tablets share one compact layout (use this same query in every CSS @media for phones)
+const phoneMQ = matchMedia(COMPACT_Q);
+const landscapeMQ = matchMedia('(orientation: landscape) and (max-height: 520px)');                           // iPhone landscape
+const tabletMQ = matchMedia('(orientation: portrait) and (min-width: 701px) and (max-width: 1100px)');       // iPad portrait
+const PHONE_PITCH = 0.31;        // wider spacing on phones (desktop PITCH = 0.17)
+const PHONE_CENTER_GAP = 0.45;   // room beside the flat centered card so its leaning neighbours don't slide behind it
+const PHONE_SCROLL = 0.682;      // swipe/wheel multiplier: cards per swipe scale with 1/pitch, so this = 0.374 * 1.1 * PHONE_PITCH / 0.187
+const OPEN_MS = 1000;       // time to open or close a card
+const OPEN_LIFT = 200;     // how far an opened card comes forward, in px
+const OPEN_GAP = 0.62;     // how far neighbours slide aside when a card is opened, fraction of card width
+const RADIUS = 0.024;       // corner rounding, fraction of card width
+const CORNER_STEPS = 5;    // segments used to wrap each rounded corner
+const THICKNESS = 0.035;    // card thickness, fraction of card width
+const EASE = 0.0085;       // per millisecond; frame-rate independent
+const DESIGN_W = 1280;     // recreations are laid out 1280px wide (height = 1280 / ASPECT) and scaled down
+const VIDEO_RANGE = 2.5;   // videos play while the card is within this many cards of the center
+
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ──────────────────────────────────────────────
+   RECREATIONS — small live copies of each homepage.
+   Each returns { html, init(root) } where init may return { tick(t, light) }.
+   `light` is the pointer position in design coordinates (1280 wide), or null.
+   ────────────────────────────────────────────── */
+const RECREATIONS = {
+  /* A static recreation: just markup. Add init(root) returning { tick(t, light) } for animation. */
+  example: () => ({
+    html: `<div class="page ex"><div><h1>Your Site</h1><p>A scaled-down copy of its homepage</p></div></div>`
+  }),
+};
+
+const stage = document.getElementById('stage');
+const bar = document.getElementById('bar');
+const counter = document.getElementById('counter');
+const last = SITES.length - 1;
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+const START = (SITES.length - 1) / 2;   // start in the middle of the row (change to any index or index + .5)
+let target = START, pos = START, index = -1, W = 0, H = 0, raf = 0, lastT = 0;
+let pitch = PITCH, openScale = 1;   // set per layout in measure()
+let wantOpen = -1, openIdx = -1, open = 0, openT = 0, visible = 9;   // opened card index, how far it has swung open (0-1), cards drawn per side
+let moved = false;
+
+const world = document.createElement('div'); world.className = 'world'; stage.appendChild(world);
+
+/* Build covers */
+const covers = SITES.map((s, i) => {
+  const el = document.createElement('div');
+  el.className = 'cover';
+  el.setAttribute('role', 'button');
+  el.setAttribute('aria-label', s.title);
+  el.style.display = 'none';
+  el.style.setProperty('--eb', s.edge || '#222');
+  el.style.setProperty('--ef', s.edgeText || '#fff');
+
+  const front = document.createElement('div'); front.className = 'front';
+  if (s.cover && RECREATIONS[s.cover]) {
+    const rec = RECREATIONS[s.cover]();
+    front.innerHTML = rec.html;
+    if (rec.init) el._live = rec.init(front.firstElementChild);
+  } else if (s.video) {
+    const v = document.createElement('video');
+    v.className = 'media'; v.src = s.video; v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'metadata';
+    if (s.poster) v.poster = s.poster;
+    v.style.objectFit = s.fit || 'cover'; v.style.objectPosition = s.position || 'center';
+    front.appendChild(v);
+    el._video = v;
+    const pb = document.createElement('div'); pb.className = 'play-badge';   // phones: hints that tapping the card plays the video
+    pb.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>';
+    front.appendChild(pb); el._badge = pb;
+  } else if (s.image) {
+    const img = new Image(); img.className = 'media'; img.src = s.image; img.alt = ''; img.draggable = false; img.decode().catch(() => {});   // pre-decode so covers never pop in blank while scrolling
+    img.style.objectFit = s.fit || 'cover'; img.style.objectPosition = s.position || 'center';
+    front.appendChild(img);
+  } else {
+    const fb = document.createElement('div'); fb.className = 'fallback'; fb.textContent = s.title;
+    front.appendChild(fb);
+  }
+  const shade = document.createElement('div'); shade.className = 'shade';
+  front.appendChild(shade);
+
+  const back = document.createElement('div'); back.className = 'back';
+  const side = cls => { const d = document.createElement('div'); d.className = 'side ' + cls; d.appendChild(document.createElement('span')).textContent = s.title; return d; };
+  el._corners = [];
+  for (let k = 0; k < 4 * CORNER_STEPS; k++) { const c = document.createElement('div'); c.className = 'corner'; el._corners.push(c); }
+  el.append(front, back, side('l'), side('r'), ...el._corners);
+  el._front = front; el._shade = shade;
+
+  world.appendChild(el);
+  return el;
+});
+
+function measure() {
+  const phone = phoneMQ.matches;
+  pitch = phone ? PHONE_PITCH : PITCH;
+  const h = stage.clientHeight * (phone ? (landscapeMQ.matches ? 0.94 : tabletMQ.matches ? 0.82 : CARD_HEIGHT) : CARD_HEIGHT);   // short landscape screens use more height; tablets less so neighbours don't clip
+  W = Math.min(h * ASPECT, stage.clientWidth * CARD_MAX_WIDTH);
+  H = W / ASPECT;
+  // phones: the opened card grows to fill the screen. Tablets: the forward lift already magnifies it (perspective 2400px), so divide that out or the top is cut off
+  openScale = phone ? (tabletMQ.matches ? Math.min(stage.clientWidth * 0.9 / W, stage.clientHeight * 0.92 / H) / (2400 / (2400 - W * 0.9)) : Math.max(1, Math.min(stage.clientWidth * 0.9 / W, stage.clientHeight * 0.92 / H))) : 1;
+  covers.forEach(el => {
+    el.style.width = W + 'px'; el.style.height = H + 'px';
+    el.style.marginLeft = -W / 2 + 'px'; el.style.marginTop = -H / 2 + 'px';
+    el.style.setProperty('--t', W * THICKNESS + 'px');
+    el.style.setProperty('--r', W * RADIUS + 'px');
+    el.style.setProperty('--s', W / DESIGN_W);
+    el.style.setProperty('--ph', DESIGN_W / ASPECT + 'px');
+
+    // Lay out the corner-wrapping segments along each quarter circle
+    const r = W * RADIUS, t = W * THICKNESS;
+    [[r, r, 180], [W - r, r, 270], [W - r, H - r, 0], [r, H - r, 90]].forEach(([cx, cy, a0], c) => {
+      for (let k = 0; k < CORNER_STEPS; k++) {
+        const a = (a0 + 90 * k / CORNER_STEPS) * Math.PI / 180, b = (a0 + 90 * (k + 1) / CORNER_STEPS) * Math.PI / 180;
+        // Vertices sit slightly outside the arc so each flat segment just touches it (instead of cutting inside it)
+        const ro = r / Math.cos(Math.PI / (4 * CORNER_STEPS));
+        const ax = cx + ro * Math.cos(a), ay = cy + ro * Math.sin(a), bx = cx + ro * Math.cos(b), by = cy + ro * Math.sin(b);
+        const L = Math.hypot(bx - ax, by - ay) + 1, mx = (ax + bx) / 2, my = (ay + by) / 2;
+        const seg = el._corners[c * CORNER_STEPS + k].style;
+        seg.width = L + 'px'; seg.height = t + 1 + 'px'; seg.left = mx - L / 2 + 'px'; seg.top = my - (t + 1) / 2 + 'px';
+        seg.transform = `rotateZ(${Math.atan2(by - ay, bx - ax)}rad) rotateX(90deg)`;
+      }
+    });
+  });
+  visible = Math.min(24, Math.ceil(stage.clientWidth / 2 / (W * pitch)) + 2);
+}
+
+/* Cards sit in one tight row. Every card is turned nearly edge-on, a little less the farther
+   it is from center, so the row reads as a fan of spines. A card passes through the center
+   edge-on (thin), never swinging flat, so there is no big rotation as it goes by.
+   An opened card is the one exception: it hinges up to face you while its neighbours slide aside. */
+const ease = x => x * x * x * (x * (x * 6 - 15) + 10);   // smootherstep: gentle start and finish
+const angleAt = ad => {
+  const a = ANGLE_NEAR - (ANGLE_NEAR - ANGLE_FAR) * (1 - Math.exp(-0.55 * ad));
+  if (phoneMQ.matches) { const n = Math.min(ad, 1); return a * n * n * (3 - 2 * n); }   // phones: 0° at center (flat), full lean one card away
+  return a;
+};
+
+/* Opening is staged, like pulling a book off a shelf, and closing simply plays it backwards:
+   the card slides forward out of the row, its neighbours part to make room, and only then
+   does it turn to face you. So it never grows into its neighbours or appears from behind them. */
+const stageOf = (t, from, to) => ease(clamp((t - from) / (to - from), 0, 1));
+
+function layout(p) {
+  // Phones: strictly staged so the card never turns while still level with its neighbours:
+  // lift forward (0-.3) -> neighbours part (.2-.6) -> turn flat and grow (.55-1)
+  const ph = phoneMQ.matches;
+  const lift = ph ? stageOf(openT, 0, 0.3) : stageOf(openT, 0, 0.45), spread = ph ? stageOf(openT, 0.2, 0.6) : stageOf(openT, 0.1, 0.65), turn = ph ? stageOf(openT, 0.55, 1) : stageOf(openT, 0.3, 1);
+  const liftPx = ph ? W * 0.9 : OPEN_LIFT;   // phone cards are small, so lift in proportion to the card
+  covers.forEach((el, i) => {
+    const d = i - p, ad = Math.abs(d);
+    if (ad > visible) { if (el.style.display !== 'none') el.style.display = 'none'; return; }
+    if (el.style.display === 'none') el.style.display = '';
+
+    const isOpen = i === openIdx && openT > 0.001;
+    // Perf: far cards are small and edge-on, so skip their rounded-corner strips (fewer 3D layers to composite while scrolling)
+    const cornersOn = ad <= 4 || i === openIdx;
+    if (el._cornersOn !== cornersOn) { el._cornersOn = cornersOn; el._corners.forEach(c => { c.style.display = cornersOn ? '' : 'none'; }); }
+    const near = Math.min(ad, 1), gap = near * near * (3 - 2 * near);   // smoothstep: the gap opens as a card nears center
+    let x = d * W * pitch + Math.sign(d) * gap * W * (ph ? PHONE_CENTER_GAP : CENTER_GAP);
+    let rot = (d < 0 ? 1 : -1) * angleAt(ad);        // left cards lean one way, right cards the other
+    let z = 0;
+    if (isOpen) {
+      // Blend the lean direction smoothly through center so scrolling either way is continuous
+      // Lean direction: a hard left/right choice while still edge-on (so it stays edge-on at the center),
+      // blending to a smooth one as it opens so scrolling either way stays continuous
+      const lean = -(turn * clamp(d / (0.0001 + turn * 0.6), -1, 1) + (1 - turn) * (d < 0 ? -1 : 1));
+      rot = lean * angleAt(ad) * (1 - turn); z = lift * liftPx;
+    }
+    else if (openT > 0.001 && openIdx >= 0) x += Math.sign(i - openIdx) * spread * W * (OPEN_GAP + Math.max(0, openScale - 1) * 0.5);
+
+    el.style.transform = `translate3d(${x}px,0,${z}px) rotateY(${rot}deg)` + (isOpen && openScale !== 1 ? ` scale(${1 + (openScale - 1) * turn})` : '');
+    if (el._badge) el._badge.style.opacity = isOpen ? 1 - openT : 1;
+    el._shade.style.opacity = isOpen ? 0 : Math.min(ad, 5) * 0.05;
+
+    // Videos only play while near the center (saves CPU/battery and keeps scrolling smooth)
+    if (el._video) {
+      const want = ad < VIDEO_RANGE;
+      if (want !== !!el._playing) {
+        el._playing = want;
+        if (want) { el._video.preload = 'auto'; el._video.play().catch(() => {}); } else el._video.pause();
+      }
+    }
+  });
+}
+
+function setBar(i) {
+  const s = SITES[i];
+  bar.classList.add('swap');
+  clearTimeout(setBar.t);
+  setBar.t = setTimeout(() => {
+    bar.textContent = '';
+    const meta = document.createElement('div'); meta.className = 'meta';
+    const h = document.createElement('h2'); h.textContent = s.title;
+    const p = document.createElement('p'); p.textContent = [s.tags, s.description].filter(Boolean).join(' — ');
+    meta.append(h, p);
+    const a = document.createElement('a'); a.textContent = 'Visit site ↗'; a.href = s.url; a.target = '_blank'; a.rel = 'noopener';
+    bar.append(meta);
+    if (window.openConsultCalendar) {   // consult-booking-calendar assets are linked
+      const c = document.createElement('button'); c.type = 'button'; c.className = 'consult'; c.textContent = 'Book a Consult';
+      c.addEventListener('click', () => window.openConsultCalendar());
+      bar.append(c);
+    } else if (window.INQUIRY_CONFIG) {   // inquiry-calendar assets are linked (it listens for clicks on [data-book-now])
+      const c = document.createElement('button'); c.type = 'button'; c.className = 'consult'; c.textContent = 'Inquire today'; c.setAttribute('data-book-now', '');
+      bar.append(c);
+    }
+    bar.append(a);
+    bar.classList.remove('swap');
+  }, 120);
+  counter.textContent = `${String(i + 1).padStart(2, '0')} / ${String(SITES.length).padStart(2, '0')}`;
+}
+
+/* Movement loop: eases `pos` toward `target`, only runs while moving */
+function frame(now) {
+  raf = 0;
+  const dt = Math.min(now - (lastT || now - 16), 48);
+  lastT = now;
+  pos += (target - pos) * (1 - Math.exp(-EASE * dt * 2.4));
+  if (Math.abs(target - pos) < 0.0008) pos = target;
+  // A card only swings open once it has arrived at the center
+  // The card being opened only changes once the previous one has fully closed, so closing always animates
+  if (openIdx !== wantOpen && openT === 0) openIdx = wantOpen;
+  const openGoal = openIdx === wantOpen && wantOpen >= 0 && Math.abs(pos - wantOpen) < 0.12 ? 1 : 0;
+  openT = clamp(openT + (openGoal ? dt : -dt) / OPEN_MS, 0, 1);
+  open = ease(openT);
+  layout(pos);
+  const i = clamp(Math.round(pos), 0, last);
+  if (i !== index) { index = i; setBar(i); }
+  if (pos !== target || openT !== openGoal || openIdx !== wantOpen) raf = requestAnimationFrame(frame); else lastT = 0;
+}
+function kick() { if (!raf) raf = requestAnimationFrame(frame); }
+function setTarget(v) { target = clamp(v, 0, last); kick(); }
+function close() { if (wantOpen >= 0) { wantOpen = -1; kick(); } }
+
+/* Animation loop for the recreated homepages: only covers near the center are updated.
+   The pointer drives the focused card's spotlight. */
+let pointer = null;   // {x, y} in design coordinates of the focused card, or null
+function updatePointer(e) {
+  const f = covers[index] && covers[index]._front;
+  if (!f) return;
+  const r = f.getBoundingClientRect();
+  const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+  pointer = inside ? { x: (e.clientX - r.left) / r.width * DESIGN_W, y: (e.clientY - r.top) / r.height * DESIGN_W / ASPECT } : null;
+}
+stage.addEventListener('pointermove', updatePointer);
+stage.addEventListener('pointerleave', () => pointer = null);
+
+function liveLoop(now) {
+  const t = now / 1000;
+  covers.forEach((el, i) => {
+    if (el._live && Math.abs(pos - i) < 5) el._live.tick(t, i === openIdx && open > .5 ? pointer : null);
+  });
+  requestAnimationFrame(liveLoop);
+}
+
+/* Wheel / trackpad: free, continuous scrolling (no snapping) */
+stage.addEventListener('wheel', e => {
+  e.preventDefault();
+  const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+  // A card was just picked: ignore the rest of that scroll gesture (trackpad momentum can trail on
+  // for over a second and would otherwise close the card or pull the carousel off it).
+  const now = performance.now(), gap = now - lastWheel;
+  lastWheel = now;
+  if (gap > 150) wheelLocked = false;                     // a pause means the old gesture is over
+  if (wheelLocked || now - lastActivate < 300 || Math.abs(delta) < 2) return;
+  close();
+  setTarget(target + delta * 0.006 * (phoneMQ.matches ? PHONE_SCROLL : 1));
+}, { passive: false });
+
+addEventListener('keydown', e => {
+  if (document.body.classList.contains('modal-open')) return;   // the booking calendar is open
+  const k = e.key;
+  if (k !== 'Enter' && k !== ' ') close();
+  if (k === 'ArrowRight' || k === 'ArrowDown') setTarget(Math.round(target) + 1);
+  else if (k === 'ArrowLeft' || k === 'ArrowUp') setTarget(Math.round(target) - 1);
+  else if (k === 'Home') setTarget(0);
+  else if (k === 'End') setTarget(last);
+  else if (k === 'Escape') close();
+  else if (k === 'Enter' || k === ' ') {
+    e.preventDefault();
+    if (wantOpen === index && open > .9) window.open(SITES[index].url, '_blank', 'noopener');
+    else { wantOpen = index; kick(); }
+  }
+});
+
+/* Selecting a card. Handled on pointer-up using the card that was pressed: cards keep moving
+   under the cursor, so a normal click event can land on a different element and be dropped. */
+function activate(i) {
+  lastActivate = performance.now();
+  wheelLocked = true;
+  if (wantOpen === i && open > .9) window.open(SITES[i].url, '_blank', 'noopener');
+  else { wantOpen = i; setTarget(i); }
+}
+let lastActivate = 0, downIdx = -1, lastWheel = 0, wheelLocked = false;
+
+/* Drag / swipe */
+let dragging = false, startX = 0, startT = 0, lastX = 0, vel = 0;
+stage.addEventListener('pointerdown', e => {
+  const c = e.target.closest && e.target.closest('.cover');
+  downIdx = c ? covers.indexOf(c) : -1;
+  dragging = true; moved = false; startX = lastX = e.clientX; startT = target; vel = 0;
+  stage.classList.add('dragging');
+});
+addEventListener('pointermove', e => {
+  if (!dragging) return;
+  if (Math.abs(e.clientX - startX) > 8) moved = true;
+  if (!moved) return;
+  close();
+  vel = e.clientX - lastX; lastX = e.clientX;
+  target = clamp(startT - (e.clientX - startX) / (W * pitch) * (phoneMQ.matches ? PHONE_SCROLL : 1), 0, last);
+  pos = target;                      // track the pointer 1:1 while dragging
+  kick();
+});
+addEventListener('pointerup', () => {
+  if (!dragging) return;
+  dragging = false; stage.classList.remove('dragging');
+  if (moved) setTarget(target - clamp(vel, -60, 60) / (W * pitch) * 7 * (phoneMQ.matches ? PHONE_SCROLL : 1));   // let a flick glide
+  else if (downIdx >= 0) activate(downIdx);
+  setTimeout(() => moved = false, 0);
+});
+
+addEventListener('resize', () => { measure(); layout(pos); });
+measure(); kick(); requestAnimationFrame(liveLoop);
+</script>
+</body>
+</html>

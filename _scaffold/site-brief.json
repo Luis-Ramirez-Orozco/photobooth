@@ -1,0 +1,35 @@
+{
+  "business": "Your Photo Booth Co",
+  "tagline": "Open-air, enclosed and 360 photo booths for every event",
+  "description_short": "Open-air, enclosed and 360 photo booth rentals for events in Los Angeles and surrounding counties.",
+  "description_long": "Open-air, enclosed and 360 photo booth rentals for weddings, birthdays, corporate events and every other kind of celebration. Serving Los Angeles and surrounding counties. Packages start at $399 for a 3-hour minimum, with additional hours at $60 per hour.",
+  "service": "Open-air, enclosed and 360 photo booth rentals for events",
+  "area": "LA and surrounding counties",
+  "event_types_or_customers": "All events: weddings, birthdays, corporate events, quinceaneras, graduations, holiday parties and more",
+  "site_url": "https://example.com/",
+  "domain_note": "No domain yet. Update site_url and re-run apply-brief.py, then scripts/urls.sh, once a domain is chosen.",
+  "email": "hello@example.com",
+  "phone": "555-555-0123",
+  "accent_color": "#ff5a3c",
+  "calendar": "inquiry",
+  "weekday_price": 399,
+  "weekend_price": 399,
+  "addons": [
+    { "id": "extra-hour", "label": "Additional hour", "price": 60, "maxQty": 8, "img": "" }
+  ],
+  "offer_name": "3-Hour Photo Booth Package",
+  "faq": [
+    { "q": "What types of photo booths do you offer?", "a": "We offer open-air booths, enclosed booths and 360 booths. Open-air booths are great for big groups, enclosed booths give a private, classic booth feel, and 360 booths capture slow-motion video as guests stand on a platform while the camera circles around them." },
+    { "q": "How much does it cost?", "a": "Packages start at $399 for a 3-hour minimum. Each additional hour is $60." },
+    { "q": "Where do you travel?", "a": "We serve Los Angeles and the surrounding counties. Tell us your venue when you inquire and we will confirm availability." },
+    { "q": "What kinds of events do you work?", "a": "All of them: weddings, birthdays, corporate events, graduations, holiday parties and more." },
+    { "q": "How much space do you need?", "a": "Open-air and enclosed booths need about an 8 x 8 ft area, and a 360 booth needs about 12 x 12 ft. We also need one standard power outlet nearby." },
+    { "q": "How early do you arrive and how long does setup take?", "a": "We arrive ahead of your start time to set up and test everything so guests can start right away. [CONFIRM: setup time and whether it counts against rental hours]" },
+    { "q": "Is an attendant included?", "a": "[CONFIRM: attendant included with every booking?]" },
+    { "q": "Do guests get prints or digital copies?", "a": "[CONFIRM: prints included, print size, and online gallery / instant sharing]" },
+    { "q": "Do you provide props and backdrops?", "a": "[CONFIRM: props and backdrop options included]" },
+    { "q": "Can the booth be used outdoors?", "a": "[CONFIRM: outdoor policy, shade/cover and weather requirements]" },
+    { "q": "How do I book and what deposit is required?", "a": "Pick your date on the calendar and send an inquiry by email or text. [CONFIRM: deposit amount and cancellation policy]" }
+  ],
+  "social_image_note": "Pending: photo booth image supplied by owner"
+}

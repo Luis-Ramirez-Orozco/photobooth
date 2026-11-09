@@ -1,0 +1,37 @@
+/* FAQ popup. Self-contained (no other stylesheet needed). Change the accent with --faq-accent. */
+.faq-overlay {
+  --faq-accent: #ff5a3c;
+  position: fixed; inset: 0; z-index: 200; display: none;
+  align-items: center; justify-content: center; padding: 1.5rem;
+  background: rgba(16, 16, 16, 0.45);
+}
+.faq-overlay.is-open { display: flex; }
+
+/* Fixed size: opening an answer scrolls inside the list instead of resizing the box */
+.faq-modal {
+  width: 100%; max-width: 560px;
+  height: min(640px, calc(100vh - 3rem)); height: min(640px, calc(100dvh - 3rem));
+  display: flex; flex-direction: column; overflow: hidden; box-sizing: border-box;
+  background: #fff; color: #101010; border-radius: 1.5rem; padding: 1.75rem 1.9rem;
+  border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+}
+.faq-head { flex: none; display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.faq-head h2 { margin: 0; font-size: 1.5rem; }
+.faq-close { background: none; border: 0; font-size: 2rem; line-height: 1; cursor: pointer; color: #101010; width: 2.75rem; height: 2.75rem; border-radius: .75rem; }
+.faq-close:hover { background: rgba(0, 0, 0, 0.06); }
+
+.faq-list { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-right: .9rem;
+  scrollbar-width: thin; scrollbar-color: var(--faq-accent) transparent; }
+.faq-list::-webkit-scrollbar { width: 6px; }
+.faq-list::-webkit-scrollbar-track { background: transparent; }
+.faq-list::-webkit-scrollbar-thumb { background: var(--faq-accent); border-radius: 3px; }
+
+.faq-list details { border-top: 1px solid rgba(0, 0, 0, 0.1); padding: .35rem 0; }
+.faq-list summary { cursor: pointer; font-weight: 700; font-size: 1.02rem; color: #101010; list-style: none; display: flex;
+  justify-content: space-between; align-items: center; gap: 1rem; padding: .65rem .85rem; border-radius: .75rem; transition: background .15s, color .15s; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; color: var(--faq-accent); font-weight: 700; font-size: 1.3rem; line-height: 1; }
+/* The selected question is highlighted; its answer sits below, unhighlighted */
+.faq-list details[open] summary { background: var(--faq-accent); color: #fff; }
+.faq-list details[open] summary::after { content: "\2212"; color: #fff; }
+.faq-list p { margin: .55rem .85rem .4rem; color: #3a3a3f; font-size: .98rem; line-height: 1.5; }

@@ -1,0 +1,14 @@
+# Your Photo Booth Co
+
+> Open-air, enclosed and 360 photo booth rentals for events in Los Angeles and surrounding counties.
+
+## About
+Open-air, enclosed and 360 photo booth rentals for events. Serving LA and surrounding counties. All events: weddings, birthdays, corporate events, quinceaneras, graduations, holiday parties and more
+
+## Services and pricing
+- 3-Hour Photo Booth Package: from $399
+
+## Contact
+- Website: https://example.com/
+- Email: hello@example.com
+- Phone: 555-555-0123

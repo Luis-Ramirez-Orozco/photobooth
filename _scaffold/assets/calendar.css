@@ -1,0 +1,644 @@
+/* Booking calendar popup. Shared across every page; calendar.js builds the
+   modal markup at runtime, so this file just needs to be linked alongside
+   it wherever a "Book Now" trigger exists. */
+
+.calendar-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.calendar-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.calendar-modal {
+  width: 100%;
+  max-width: 480px;
+  background: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.5rem;
+  padding: 1.875rem;
+  color: #ececec;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+  transform: scale(0.96) translateY(8px);
+  transition: transform 0.2s ease;
+}
+
+.calendar-overlay.is-open .calendar-modal {
+  transform: scale(1) translateY(0);
+}
+
+.calendar-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.calendar-modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.calendar-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.625rem;
+  height: 2.625rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: none;
+  color: #ececec;
+  font-size: 2.0625rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.calendar-close:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.125rem;
+}
+
+.calendar-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.625rem;
+  height: 2.625rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: none;
+  color: #b5b5b5;
+  cursor: pointer;
+}
+
+.calendar-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ececec;
+}
+
+.calendar-month-label {
+  font-size: 1.3125rem;
+  font-weight: 600;
+}
+
+.calendar-weekdays,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-weekdays {
+  margin-bottom: 0.375rem;
+}
+
+.calendar-weekdays span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.625rem;
+  font-size: 1.03rem;
+  font-weight: 600;
+  color: #8a8a8a;
+}
+
+.calendar-grid {
+  row-gap: 0.1875rem;
+}
+
+.calendar-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.125rem;
+  height: 3.75rem;
+  border: none;
+  border-radius: 0.85rem;
+  background: none;
+  color: #ececec;
+  cursor: pointer;
+}
+
+.calendar-day-number {
+  font-size: 1.03rem;
+  line-height: 1;
+}
+
+.calendar-day-price {
+  font-size: 0.6875rem;
+  line-height: 1;
+  font-weight: 500;
+  color: #8a8a8a;
+}
+
+.calendar-day.is-selected .calendar-day-price {
+  color: rgba(16, 16, 16, 0.6);
+}
+
+.calendar-day:hover:not(:disabled):not(.is-selected) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.calendar-day.is-outside {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.calendar-day.is-today {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.calendar-day.is-today .calendar-day-number {
+  font-weight: 700;
+}
+
+.calendar-day.is-selected {
+  background: #ececec;
+  color: #101010;
+}
+
+.calendar-day.is-selected .calendar-day-number {
+  font-weight: 700;
+}
+
+.calendar-day:disabled {
+  color: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+}
+
+.calendar-day:disabled .calendar-day-price {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.calendar-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.125rem;
+  margin-top: 1.5rem;
+  padding-top: 1.125rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.21875rem;
+  color: #b5b5b5;
+}
+
+.calendar-confirm-btn {
+  flex-shrink: 0;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.6rem 1.35rem;
+  background: #ececec;
+  color: #101010;
+  font-weight: 700;
+  font-size: 1.21875rem;
+  cursor: pointer;
+}
+
+.calendar-confirm-btn:hover:not(:disabled) {
+  background: #ffffff;
+}
+
+.calendar-confirm-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.calendar-addons-btn {
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.75rem;
+  padding: 0.6rem 1.35rem;
+  background: none;
+  color: #ececec;
+  font-weight: 600;
+  font-size: 1.21875rem;
+  cursor: pointer;
+}
+
+.calendar-addons-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* --- Booking layout: calendar and show details side by side, centered ---- */
+
+.booking-overlay {
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+.booking-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 440px));
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  margin: auto 0;
+}
+
+.booking-layout .calendar-modal {
+  max-width: none;
+  box-sizing: border-box;
+}
+
+/* Centered card titles; the close button sits absolutely on the right. */
+.booking-layout .calendar-modal-header {
+  position: relative;
+  justify-content: center;
+  min-height: 2.625rem;
+}
+
+.booking-layout .calendar-modal-header h2 {
+  text-align: center;
+}
+
+.booking-layout .calendar-modal-header .calendar-close {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.details-section {
+  padding: 1.125rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.details-section h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+}
+
+.details-section p {
+  margin: 0 0 0.375rem;
+  font-size: 1.0625rem;
+}
+
+.details-section ul {
+  margin: 0;
+  padding-left: 1.125rem;
+  list-style: disc;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: #d4d4d4;
+}
+
+.details-contact {
+  display: block;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: #ececec;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.details-contact-label {
+  color: #8a8a8a;
+}
+
+.details-contact:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .booking-layout {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 480px;
+    margin: auto;
+  }
+}
+
+/* --- Add-ons modal, stacked above the calendar modal ------------------ */
+
+/* Add-ons and contact popups always open on top of the calendar, which
+   already blurs the page; a second stacked backdrop blur is expensive and
+   makes the page flicker while typing. */
+#addons-overlay,
+#phone-overlay {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+#addons-overlay {
+  z-index: 110;
+}
+
+.addons-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  max-height: 65vh;
+  overflow-y: auto;
+  padding: 0.125rem;
+}
+
+.addon-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.85rem;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.addon-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.addon-card:has(.addons-checkbox:checked) {
+  border-color: #ececec;
+}
+
+.addon-card-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.addon-card .addons-checkbox {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  accent-color: #ececec;
+  cursor: pointer;
+}
+
+.addon-card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6rem 0.7rem;
+}
+
+.addon-card-label {
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+
+.addon-card-price {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  color: #8a8a8a;
+}
+
+.addon-qty {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.7rem 0.6rem;
+}
+
+.addon-qty-label {
+  flex: 1;
+  font-size: 0.8125rem;
+  color: #8a8a8a;
+}
+
+.addon-qty-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.5rem;
+  background: none;
+  color: #ececec;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.addon-qty-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.addon-qty-value {
+  min-width: 1.25rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* --- Phone-number modal, stacked above the calendar modal -------------- */
+
+#phone-overlay {
+  z-index: 110;
+}
+
+.phone-helper {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  color: #8a8a8a;
+}
+
+/* Two large Email / Text buttons */
+.send-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.25rem; }
+.send-choice-single { grid-template-columns: 1fr; }
+.send-choice-btn {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem;
+  min-height: 9rem; padding: 1.25rem 1rem; border-radius: 1rem; font-family: inherit;
+  font-size: 1.25rem; font-weight: 700; cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+/* --- Thank-you modal, always on top ------------------------------------ */
+
+#thankyou-overlay {
+  z-index: 120;
+}
+
+.thankyou-message {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: #d4d4d4;
+}
+
+.thankyou-footer {
+  justify-content: flex-end;
+}
+
+/* Desktop: three add-on columns so every card (and its quantity) fits. */
+@media (min-width: 901px) {
+  #addons-overlay .calendar-modal {
+    max-width: 760px;
+  }
+  .addons-list {
+    grid-template-columns: repeat(3, 1fr);
+    max-height: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-overlay {
+    padding: 0.75rem;
+  }
+  .calendar-modal {
+    padding: 1.5rem 1.25rem;
+  }
+  .calendar-footer,
+  .calendar-confirm-btn,
+  .calendar-addons-btn {
+    font-size: 1rem;
+  }
+  .calendar-confirm-btn,
+  .calendar-addons-btn {
+    padding: 0.6rem 1rem;
+  }
+}
+
+.qty-short {
+  display: none;
+}
+
+/* Phones: "QTY" label on its own line, with bigger tap targets below. */
+@media (max-width: 767px) {
+  .qty-long {
+    display: none;
+  }
+  .qty-short {
+    display: inline;
+  }
+  .addon-card-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.125rem;
+    padding: 0.6rem 0.5rem 0.5rem;
+  }
+  .addon-qty {
+    flex-wrap: wrap;
+    gap: 0.375rem 0.25rem;
+    padding: 0 0.5rem 0.6rem;
+  }
+  .addon-qty-label {
+    flex: 0 0 100%;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+  .addon-qty-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.65rem;
+    font-size: 1.375rem;
+  }
+  .addon-qty-value {
+    flex: 1;
+    font-size: 1.125rem;
+  }
+}
+
+
+/* ==========================================================================
+   Example theme: white cards, near-black text, orange (#ff5a3c) buttons. Change the colors here.
+   Overrides the dark defaults above, so it must stay at the end of the file.
+   ========================================================================== */
+.calendar-overlay { background: rgba(16, 16, 16, 0.45); }
+
+.calendar-modal {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #101010;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+}
+
+.calendar-close { color: #101010; }
+.calendar-close:hover { background: rgba(0, 0, 0, 0.06); }
+.calendar-nav-btn { color: #77757a; }
+.calendar-nav-btn:hover { background: rgba(0, 0, 0, 0.06); color: #101010; }
+.calendar-weekdays span { color: #77757a; }
+
+.calendar-day { color: #101010; }
+.calendar-day-price { color: #77757a; }
+.calendar-day:hover:not(:disabled):not(.is-selected) { background: rgba(255, 90, 60, 0.12); }
+.calendar-day.is-outside { color: rgba(16, 16, 16, 0.28); }
+.calendar-day.is-today { border: 1px solid rgba(16, 16, 16, 0.35); }
+.calendar-day.is-selected { background: #ff5a3c; color: #ffffff; }
+.calendar-day.is-selected .calendar-day-price { color: rgba(255, 255, 255, 0.85); }
+.calendar-day:disabled { color: rgba(16, 16, 16, 0.22); }
+.calendar-day:disabled .calendar-day-price { color: rgba(16, 16, 16, 0.18); }
+
+.calendar-footer { border-top: 1px solid rgba(0, 0, 0, 0.1); color: #77757a; }
+.calendar-confirm-btn {
+  background: #ff5a3c; color: #ffffff; border-radius: 999px; padding: 0.7rem 1.7rem;
+}
+.calendar-confirm-btn:hover:not(:disabled) { background: #ff5a3c; filter: brightness(1.08); }
+.calendar-addons-btn {
+  border: 1.5px solid #ff5a3c; color: #ff5a3c; border-radius: 999px; padding: 0.7rem 1.7rem;
+}
+.calendar-addons-btn:hover { background: rgba(255, 90, 60, 0.1); }
+
+.details-section { border-top: 1px solid rgba(0, 0, 0, 0.1); }
+.details-section h3 { color: #77757a; }
+.details-section ul { color: #3a3a3f; }
+.details-contact { color: #101010; }
+.details-contact-label { color: #77757a; }
+
+.addon-card { background: #f6f4f1; }
+.addon-card:hover { background: #efece8; }
+.addon-card:has(.addons-checkbox:checked) { border-color: #ff5a3c; }
+.addon-card .addons-checkbox { accent-color: #ff5a3c; }
+.addon-card-price, .addon-qty-label { color: #77757a; }
+.addon-qty-btn { border: 1px solid rgba(0, 0, 0, 0.2); color: #101010; }
+.addon-qty-btn:hover { background: rgba(255, 90, 60, 0.12); }
+
+.phone-helper { color: #77757a; }
+.send-choice-btn { background: #f6f4f1; color: #101010; border: 1.5px solid #ff5a3c; }
+.send-choice-btn svg { color: #ff5a3c; }
+.send-choice-btn:hover, .send-choice-btn:focus-visible { background: #ff5a3c; color: #ffffff; transform: translateY(-2px); outline: none; }
+.send-choice-btn:hover svg, .send-choice-btn:focus-visible svg { color: #ffffff; }
+.thankyou-message { color: #3a3a3f; }
+.thankyou-message a { color: #ff5a3c; }
+
+/* --- Phones: date picker only ------------------------------------------- */
+@media (max-width: 700px) {
+  .booking-details { display: none; }              /* no "Show Details" panel on phones */
+  .send-choice-btn { min-height: 8rem; font-size: 1.1rem; }
+}
+
+/* Phones: a slightly more compact calendar so it fits comfortably above the browser bars */
+@media (max-width: 700px) {
+  #calendar-overlay .calendar-modal { padding: 1.1rem 1rem; }
+  #calendar-overlay .calendar-modal-header { margin-bottom: 0.7rem; }
+  #calendar-overlay .calendar-nav { margin-bottom: 0.6rem; }
+  #calendar-overlay .calendar-weekdays span { height: 2.1rem; }
+  #calendar-overlay .calendar-grid { row-gap: 0.1rem; }
+  #calendar-overlay .calendar-day { height: 3.2rem; }
+  #calendar-overlay .calendar-footer { margin-top: 0.9rem; padding-top: 0.8rem; }
+}
+
+/* Single calendar card (no Show Details panel); blank cells for days outside the shown month */
+.booking-layout { grid-template-columns: minmax(0, 480px); }
+.calendar-day-blank { display: block; height: 3.75rem; }
+@media (max-width: 700px) {
+  #calendar-overlay .calendar-day-blank { height: 3.2rem; }
+}
